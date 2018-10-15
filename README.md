@@ -1,13 +1,8 @@
 # Uppgift Gubbspel
 
 ## Instruktioner för workspace - GÖR DETTA FÖRST
-- Kör bash-filen setup.sh med kommandot: 
-    bash setup.sh
-- Scriptet installerar
-    - PHP7
-    - Kint
-    - MySQL
-    - phpMyAdmin
+- Kör bash-filen upgrade.sh med kommandot: 
+    bash upgrade.sh
 - Dela ditt workspace med johkel
 - Utgå från filerna du fick och skapa nya efter behov
 - Inlämning på Classroom i form av en länk till detta workspace
@@ -17,15 +12,15 @@
 - Funktioner som kunden kräver (grundkrav)
     - Visa alla gubbar
     - Redigera en gubbe
-        - Ändra namn och beskrivning
     - Skapa en gubbe (utan bild)
     - Ta bort en gubbe
-        - Varning behövs
 - Funktioner som kunden önskar (om du hinner)
     - Att det skapas arméer i menyn automatiskt och att de är klickbara för att visa enbart en armé
     - Login krävs för att skapa, redigera och ta bort
     - Filuppladdning så att man kan lägga till eller byta bild på gubbe
     - Att kunna söka efter namnet på en gubbe i sökrutan och få en lista med förslag på något sätt
+    - Varning när man tar bort gubbe
+  
 
 ## Tips
 - Du behöver skapa en tabell i din db
