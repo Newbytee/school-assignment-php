@@ -1,6 +1,8 @@
 # Uppgift Gubbspel
 
 ## Instruktioner för workspace - GÖR DETTA FÖRST
+- Gör en egen branch med kommandot i bash:
+    git checkout -b dittnamnistället
 - Kör bash-filen upgrade.sh med kommandot: 
     bash upgrade.sh
 - Dela ditt workspace med johkel
