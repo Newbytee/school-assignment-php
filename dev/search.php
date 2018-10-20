@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once('php/dbm.php');
-$query = filter_input(INPUT_GET, 'searchQuery', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$query = filter_input(INPUT_GET, 'searchQuery', FILTER_SANITIZE_MAGIC_QUOTES);
 $stm = $pdo->prepare('SELECT team, name, info, img FROM gubbar WHERE name LIKE "%' . $query . '%" OR team LIKE "%' . $query . '%" OR info LIKE "%' . $query . '%"');
 $stm->execute();
 $results = $stm->fetchAll();
@@ -27,6 +28,13 @@ $results = $stm->fetchAll();
                     <a class="nav-link" href="index.php">Hem<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+            <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginWindow">Logga in</button>';
+            } else {
+                echo '<p class="nav text-muted">Inloggad som ' . $_SESSION['user'] . ' ·</p><a href="logout.php" type="button" class="btn btn-dark">Logga ut</a>';
+            }
+            ?>
             <form action="search.php" method="GET" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-smb-2" type="text" placeholder="Sök" aria-label="Search" name="searchQuery">
                 <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Sök gubbe</button>
@@ -50,7 +58,6 @@ $results = $stm->fetchAll();
                         <div class="card-body">
                             <h4 class="card-title"><?= $result['name'] ?></h4>
                             <p class="card-text"><?= $result['info'] ?></p>
-                            <a href="#" class="btn btn-secondary">Ändra</a>
                         </div>
                     </div>
                 </div>
